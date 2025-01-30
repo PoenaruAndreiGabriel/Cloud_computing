@@ -1,0 +1,37 @@
+﻿@model List<(string Url, string Result)>
+@{
+    ViewData["Title"] = "History";
+}
+
+
+<h1>Istoric</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Imagine</th>
+                <th>Rezultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Url" alt="Imagine ecuatie" style="max-width: 200px;" />
+                    </td>
+                    <td>@item.Result</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>Nu exista intrari in istoric.</p>
+}
+<a asp-action="Index" class="btn btn-secondary">Înapoi</a>
+

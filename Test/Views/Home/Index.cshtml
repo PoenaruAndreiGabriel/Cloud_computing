@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "EasyMath";
+}
+
+<h1>EasyMath</h1>
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="uploadedImage">Adauga imaginea ecuatiei:</label>
+        <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" />
+    </div>
+    <button type="submit">Detecteaza si Rezolva</button>
+</form>
+
+@if (ViewData["Result"] != null)
+{
+    <h2>Rezultat:</h2>
+    <p>@ViewData["Result"]</p>
+}
+<a asp-action="History" class="btn btn-primary">Vezi Istoricul</a>
